@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def inicio(req):
-    return render(req, 'appventas/index.html')
+    return render(req, 'appventas/padre.html')
 
 def clientes(req):
     return render(req, 'appventas/clientes.html')

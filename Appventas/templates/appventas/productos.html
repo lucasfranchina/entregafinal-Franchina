@@ -5,7 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="background-color: blueviolet;">
-    <h1>PRODUCTOS</h1>
+<body>
+
+    {% extends "appventas/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <h1>Este es el título que cambia para Productos</h1>
+    <p>Este es el párrafo que cambia para Productos</p>
+
+    {% endblock %}
+
 </body>
 </html>
