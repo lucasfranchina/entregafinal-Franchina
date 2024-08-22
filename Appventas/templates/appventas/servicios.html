@@ -13,8 +13,16 @@
 
     {% block contenidoQueCambia %}
 
-    <h1>Este es el título que cambia - Servicios</h1>
-    <p>Este es el párrafo que cambia - Servicios</p>
+    <div class="container px-lg-5">
+        <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+            <div class="m-4 m-lg-5">
+
+                <h1>Usted está en la sección de servicios</h1>
+                <p>Para registrar un nuevo servicio, <a href="{% url 'serviciosform2' %}">haga click aqui</a></p>
+
+            </div>
+        </div>
+    </div>
 
     {% endblock %}
 

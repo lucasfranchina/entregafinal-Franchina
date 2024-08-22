@@ -13,8 +13,18 @@
 
     {% block contenidoQueCambia %}
 
-    <h1>Este es el título que cambia para Productos</h1>
-    <p>Este es el párrafo que cambia para Productos</p>
+   
+        <div class="container px-lg-5">
+            <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                <div class="m-4 m-lg-5">
+
+                    <h1>Usted está en la sección de productos</h1>
+                    <p>Para registrar un nuevo producto, <a href="{% url 'productosform2' %}">haga click aqui</a></p>
+
+                </div>
+            </div>
+        </div>
+   
 
     {% endblock %}
 

@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-
+    
     {% extends "appventas/padre.html" %}
 
     {% load static %}
@@ -17,12 +17,21 @@
         <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
             <div class="m-4 m-lg-5">
 
-                <h1>Usted está en la sección de clientes</h1>
-                <p>Para registrar un nuevo cliente, <a href="{% url 'clientesform2' %}">haga click aqui</a></p>
+    <h3>Ingreso de nuevo servicio</h3>
 
-            </div>
-        </div>
-    </div>
+    <form action="" method="POST">
+
+        {% csrf_token %}
+        <table style="margin-left: auto; margin-right: auto;">
+            {{miformulario.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
+        
+    </form>
+
+</div>
+</div>
+</div>
 
     {% endblock %}
 
