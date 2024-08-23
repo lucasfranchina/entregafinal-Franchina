@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    {% extends "appventas/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <div class="container px-lg-5">
+        <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+            <div class="m-4 m-lg-5">    
+
+<p>Ingrese el producto a buscar:</p>
+
+<form action="{% url 'buscar' %}" method="GET">
+
+    <input type="text" name="producto" id="producto">
+    <input type="submit" value="Buscar">
+
+</form>
+
+{% if productos2 %}
+
+<!--<p>Estamos buscando: {{producto}}</p>-->
+{% for prod in productos2 %}
+<p>Producto: {{prod.producto}}</p>
+<p>Marca: {{prod.marca}}</p>
+
+{% endfor %}
+
+{% elif producto %}
+    <p>No hay datos con esa descripción</p>
+
+{% endif %}
+
+</div>
+</div>
+</div>
+
+    {% endblock %}
+
+</body>
+</html>

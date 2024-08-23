@@ -66,3 +66,18 @@ def servicios_form2(req):
         miformulario = ServiciosFormulario()
     
     return render(req, 'appventas/serviciosformulario.html', {'miformulario': miformulario})
+
+def busquedaproductos(req):
+    return render (req, 'appventas/busquedaproductos.html')
+
+def buscar(req):
+    if req.GET['producto']:
+        producto = req.GET['producto']
+        productos2 = Productos.objects.filter(producto__contains=producto)
+
+        return render(req, "appventas/busquedaproductos.html", {"productos2":productos2, "producto": producto})
+    
+    else:
+        respuesta = "No se enviaron datos"
+    
+    return render(req, "appventas/busquedaproductos.html", {"respuesta":respuesta})
