@@ -1,5 +1,4 @@
-tercerapre-entrega-franchina
-Tercera pre-entrega Lucas Franchina
+Entrega final - Lucas Franchina
 
 En la página de inicio (http://127.0.0.1:8000/Appventas/inicio/) contamos con 3 links principales:
 
@@ -10,15 +9,35 @@ En la página de inicio (http://127.0.0.1:8000/Appventas/inicio/) contamos con 3
 *Servicios (http://127.0.0.1:8000/Appventas/servicios/)
 
 Clientes
-Aquí podemos acceder al formulario para agregar nuevos clientes (http://127.0.0.1:8000/Appventas/clientes-form2/)
+Aquí podemos ver la lista de clientes, y en cada caso ir a:
+-Ver: muestra los detalles
+-Editar: permite modificar nombre, apellido, dirección, e-mail
+-Borrar: permite borrar
+En cada caso hay un enlace "volver" para regresar a la vista de Clientes
+A su vez, tenemos la posibilidad de agregar nuevos clientes (http://127.0.0.1:8000/Appventas/clientes/nuevo)
+
 
 Productos
-En esta sección tenemos un enlace al formulario para agregar nuevos productos (http://127.0.0.1:8000/Appventas/productos-form2/) y otro link para la búsqueda de productos (http://127.0.0.1:8000/Appventas/busquedaproductos/). En la búsqueda de productos, al ingresar el producto a buscar, mostrará como resultado (en caso exista) el producto y su marca. Usar como ejemplo: "Celular", "TV", "Cafetera"
+Aquí podemos ver la lista de productos, y en cada caso ir a:
+-Ver: muestra los detalles
+-Editar: permite modificar producto, marca, precio
+-Borrar: permite borrar
+En cada caso hay un enlace "volver" para regresar a la vista de Productos
+A su vez, tenemos la posibilidad de agregar nuevos productos (http://127.0.0.1:8000/Appventas/productos/nuevo)
 
 Servicios
-Esta sección permite acceder al formulario para agregar nuevos servicios (http://127.0.0.1:8000/Appventas/servicios-form2/)
+Aquí podemos ver la lista de servicios, y en cada caso ir a:
+-Ver: muestra los detalles
+-Editar: permite modificar servicio, precio, proveedor
+-Borrar: permite borrar
+En cada caso hay un enlace "volver" para regresar a la vista de Servicios
+A su vez, tenemos la posibilidad de agregar nuevos servicios (http://127.0.0.1:8000/Appventas/servicios/nuevo)
 
-Además de esto, el sitio cuenta con un header con un link directo al inicio. A su vez, los botones para acceder a Clientes, Productos y Servicios se muestran en todas las páginas, ya que se encuentran en la página padre; junto con el encabezado y el pie de página.
+Además de esto, el sitio cuenta con un header con un link directo al inicio y una sección "acerca de mi".
+Este header incluye también un menú desplegable que permite el registro o login, y una vez logueado, permite editar el perfil, cambiar la contraseña y desloguearse.
+
+Las secciones de Clientes, Productos y Servicios solo son visibles estando logueado.
+Las secciones de inicio y acerca de, son visibles para cualquier usuario, esté o no logueado.
 
 Por último, podemos también acceder a la sección admin con las siguientes credenciales para el superuser:
 
