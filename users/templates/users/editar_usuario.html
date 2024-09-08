@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cliente</title>
+</head>
+<body>
+
+    {% extends "appventas/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <div class="container px-lg-5">
+        <div class="p-2 p-lg-3 bg-light rounded-3 text-center">
+            <div class="m-2 m-lg-3">
+
+                <h3>Login</h3>
+                <p class="fs-5 fw-bold">{{ msg_login }}</p>
+
+                <form action="" method="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+            
+                    <table>
+            
+                        {{ mi_form.as_table }}
+            
+                    </table>
+            
+                    <a class="btn btn-primary" href="{% url 'CambiarPass' %}">Cambiar contraseña</a>
+            
+                    <input type="submit" value="Actualizar">
+            
+                </form>     
+                
+                <a href="{% url 'inicio' %}">Volver</a>
+            </div>
+            </div>
+        </div>
+    </div>
+        
+    {% endblock %}
+
+</body>
+</html>

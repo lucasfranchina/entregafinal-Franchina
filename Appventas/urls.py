@@ -24,6 +24,6 @@ urlpatterns = [
     path('servicios/<pk>/editar', views.serviciosupdateview.as_view(), name='servicioseditar'),
     path('servicios/<pk>/borrar', views.serviciosdeleteview.as_view(), name="serviciosborrar"),
 
-    path('busquedaproductos/', views.busquedaproductos, name='busquedaproductos'),
-    path('buscar/', views.buscar, name='buscar'),
+    # path('busquedaproductos/', views.busquedaproductos, name='busquedaproductos'),
+    # path('buscar/', views.buscar, name='buscar'),
 ]
