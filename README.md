@@ -39,6 +39,9 @@ Este header incluye también un menú desplegable que permite el registro o logi
 Las secciones de Clientes, Productos y Servicios solo son visibles estando logueado.
 Las secciones de inicio y acerca de, son visibles para cualquier usuario, esté o no logueado.
 
+Podrán encontrar un archivo de Excel "Casos de prueba" donde se documentan algunos testeos de funcionalidad.
+Por otro lado, pueden ver en el siguiente en lace un video con la demostración del uso: https://drive.google.com/file/d/16AnYlOIEm2hQyYmnjNB_T6UewzR1iZtt/view?usp=sharing
+
 Por último, podemos también acceder a la sección admin con las siguientes credenciales para el superuser:
 
 Usuario: lfranchina
