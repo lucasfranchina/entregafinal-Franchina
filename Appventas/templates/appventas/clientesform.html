@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cliente</title>
+</head>
+<body>
+
+    {% extends "appventas/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <div class="container px-lg-5">
+        <div class="p-2 p-lg-3 bg-light rounded-3 text-center">
+            <div class="m-2 m-lg-3">
+
+                <h3>Usted está en la sección de clientes</h3>
+                <h5>Crear Cliente</h5>
+                <div style="text-align: left;">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+
+                    <input type="submit" value="Crear">
+
+                </form>          
+                
+                <a href="{% url 'listaclientes' %}">Volver</a>
+            </div>
+            </div>
+        </div>
+    </div>
+        
+    {% endblock %}
+
+</body>
+</html>

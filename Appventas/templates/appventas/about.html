@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de</title>
+</head>
+<body>
+
+    {% extends "appventas/padre.html" %}
+
+    {% load static %}
+
+    {% load tz %}
+
+    {% block contenidoQueCambia %}
+
+    <div class="container px-lg-5">
+        <div class="p-2 p-lg-3 bg-light rounded-3 text-center">
+            <div class="m-2 m-lg-3">
+
+                <h3>Acerca de mi</h3>
+                <h5>Lucas Franchina</h5>
+                <img src="{% static 'appventas/images/foto1.jpg' %}" alt="Ovejero Aleman" style="width: 300px; height: auto;" class="imagen">
+                <p style="text-align: left;">Soy Licenciado en Química de la Universidad de Buenos Aires, trabajando actualmente en el área de Asuntos Regulatorios de la industria farmaceútica.</p>
+                <p style="text-align: left;">Fecha: {{ fecha_actual|date:"d/m/Y" }}</p>
+                
+
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock %}
+
+</body>
+</html>

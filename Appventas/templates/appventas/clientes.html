@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clientes</title>
 </head>
 <body>
 
@@ -14,16 +14,22 @@
     {% block contenidoQueCambia %}
 
     <div class="container px-lg-5">
-        <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-            <div class="m-4 m-lg-5">
+        <div class="p-2 p-lg-3 bg-light rounded-3 text-center">
+            <div class="m-2 m-lg-3">
 
-                <h1>Usted está en la sección de clientes</h1>
-                <p>Para registrar un nuevo cliente, <a href="{% url 'clientesform2' %}">haga click aqui</a></p>
-
+                <h3>Usted está en la sección de clientes</h3>
+                <a href="{% url 'nuevocliente' %}">Nuevo Cliente</a>
+                <div style="text-align: left;">
+                {% for cliente in clientes_list %}
+            
+                <li>{{cliente.nombre}}, {{cliente.apellido}}</li>
+                <a href="{% url 'clientesdetalle' cliente.pk %}">Ver</a> <a href="{% url 'clienteseditar' cliente.pk %}">Editar</a> <a href="{% url 'clientesborrar' cliente.pk %}">Borrar</a>
+                {% endfor %}
+            </div>
             </div>
         </div>
     </div>
-
+    
     {% endblock %}
 
 </body>

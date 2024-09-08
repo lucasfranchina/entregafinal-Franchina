@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Servicios</title>
 </head>
 <body>
 
@@ -14,16 +14,22 @@
     {% block contenidoQueCambia %}
 
     <div class="container px-lg-5">
-        <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-            <div class="m-4 m-lg-5">
+        <div class="p-2 p-lg-3 bg-light rounded-3 text-center">
+            <div class="m-2 m-lg-3">
 
-                <h1>Usted está en la sección de servicios</h1>
-                <p>Para registrar un nuevo servicio, <a href="{% url 'serviciosform2' %}">haga click aqui</a></p>
-
+                <h3>Usted está en la sección de servicios</h3>
+                <a href="{% url 'nuevoservicio' %}">Nuevo Servicio</a>
+                <div style="text-align: left;">
+                {% for servicio in servicios_list %}
+            
+                <li>{{servicio.servicio}}, {{servicio.proveedor}}</li>
+                <a href="{% url 'serviciosdetalle' servicio.pk %}">Ver</a> <a href="{% url 'servicioseditar' servicio.pk %}">Editar</a> <a href="{% url 'serviciosborrar' servicio.pk %}">Borrar</a>
+                {% endfor %}
+            </div>
             </div>
         </div>
     </div>
-
+    
     {% endblock %}
 
 </body>

@@ -1,10 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from datetime import datetime
 from Appventas.models import Clientes, Productos, Servicios
 from Appventas.forms import ClientesFormulario, ProductosFormulario, ServiciosFormulario
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 def inicio(req):
     return render(req, 'appventas/padre.html')
+
+def about(req):
+    fecha_actual = datetime.now()
+    return render(req, 'appventas/about.html', {'fecha_actual': fecha_actual})
 
 def clientes(req):
     return render(req, 'appventas/clientes.html')
@@ -15,57 +22,82 @@ def productos(req):
 def servicios(req):
     return render(req, 'appventas/servicios.html')
 
-#def clientes_form(req):
-#   if req.method == 'POST':
-#      clientes = Clientes(nombre=req.POST['nombre'], apellido=req.POST['apellido'], direccion=req.POST['direccion'], email=req.POST['email'])
-#     clientes.save()
-#    return render(req, 'appventas/padre.html')
-#return render(req, 'appventas/clientesformulario.html')
+class clienteslistview(ListView):
+    model = Clientes
+    template_name = 'appventas/clientes.html'
 
-def clientes_form2(req):
-    if req.method == 'POST':
-        miformulario = ClientesFormulario(req.POST)
-        print(miformulario)
+class clientesdetalle(DetailView):
+    model = Clientes
+    template_name = 'appventas/clientesdetalle.html'
 
-        if miformulario.is_valid:
-            información = miformulario.cleaned_data
-            clientes = Clientes(nombre=req.POST['nombre'], apellido=req.POST['apellido'], direccion=req.POST['direccion'], email=req.POST['email'])
-            clientes.save()
-            return render(req, 'appventas/clientes.html')
-    else:
-        miformulario = ClientesFormulario()
-    
-    return render(req, 'appventas/clientesformulario2.html', {'miformulario': miformulario})
+class clientescreateview(CreateView):
+    model = Clientes
+    template_name = 'appventas/clientesform.html'
+    success_url = reverse_lazy('listaclientes')
+    fields = ['nombre', 'apellido', 'direccion', 'email']
 
-def productos_form2(req):
-    if req.method == 'POST':
-        miformulario = ProductosFormulario(req.POST)
-        print(miformulario)
+class clientesupdateview(UpdateView):
+    model = Clientes
+    template_name = 'appventas/clientesedit.html'
+    success_url = reverse_lazy('listaclientes')
+    fields = ['nombre', 'apellido', 'direccion', 'email']
 
-        if miformulario.is_valid:
-            información = miformulario.cleaned_data
-            productos = Productos(producto=req.POST['producto'], marca=req.POST['marca'], precio=req.POST['precio'])
-            productos.save()
-            return render(req, 'appventas/productos.html')
-    else:
-        miformulario = ProductosFormulario()
-    
-    return render(req, 'appventas/productosformulario.html', {'miformulario': miformulario})
+class clientesdeleteview(DeleteView):
+    model = Clientes
+    template_name = 'appventas/clientesdelete.html'
+    success_url = reverse_lazy('listaclientes')
 
-def servicios_form2(req):
-    if req.method == 'POST':
-        miformulario = ServiciosFormulario(req.POST)
-        print(miformulario)
 
-        if miformulario.is_valid:
-            información = miformulario.cleaned_data
-            productos = Servicios(servicio=req.POST['servicio'], precio=req.POST['precio'], proveedor=req.POST['proveedor'])
-            productos.save()
-            return render(req, 'appventas/servicios.html')
-    else:
-        miformulario = ServiciosFormulario()
-    
-    return render(req, 'appventas/serviciosformulario.html', {'miformulario': miformulario})
+class productoslistview(ListView):
+    model = Productos
+    template_name = 'appventas/productos.html'
+
+class productosdetalle(DetailView):
+    model = Productos
+    template_name = 'appventas/productosdetalle.html'
+
+class productoscreateview(CreateView):
+    model = Productos
+    template_name = 'appventas/productosform.html'
+    success_url = reverse_lazy('listaproductos')
+    fields = ['producto', 'marca', 'precio']
+
+class productosupdateview(UpdateView):
+    model = Productos
+    template_name = 'appventas/productosedit.html'
+    success_url = reverse_lazy('listaproductos')
+    fields = ['producto', 'marca', 'precio']
+
+class productosdeleteview(DeleteView):
+    model = Productos
+    template_name = 'appventas/productosdelete.html'
+    success_url = reverse_lazy('listaproductos')
+
+
+class servicioslistview(ListView):
+    model = Servicios
+    template_name = 'appventas/servicios.html'
+
+class serviciosdetalle(DetailView):
+    model = Servicios
+    template_name = 'appventas/serviciosdetalle.html'
+
+class servicioscreateview(CreateView):
+    model = Servicios
+    template_name = 'appventas/serviciosform.html'
+    success_url = reverse_lazy('listaservicios')
+    fields = ['servicio', 'precio', 'proveedor']
+
+class serviciosupdateview(UpdateView):
+    model = Servicios
+    template_name = 'appventas/serviciosedit.html'
+    success_url = reverse_lazy('listaservicios')
+    fields = ['servicio', 'precio', 'proveedor']
+
+class serviciosdeleteview(DeleteView):
+    model = Servicios
+    template_name = 'appventas/serviciosdelete.html'
+    success_url = reverse_lazy('listaservicios')
 
 def busquedaproductos(req):
     return render (req, 'appventas/busquedaproductos.html')

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto</title>
+</head>
+<body>
+
+    {% extends "appventas/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <div class="container px-lg-5">
+        <div class="p-2 p-lg-3 bg-light rounded-3 text-center">
+            <div class="m-2 m-lg-3">
+
+                <h3>Usted está en la sección de productos</h3>
+                <h5>Detalle de Producto</h5>
+                <div style="text-align: left;">
+                <p>Producto: <i>{{object.producto}}</i></p>
+                <p>Marca: <i>{{object.marca}}</i></p>
+                <p>Precio: <i>{{object.precio}}</i></p>           
+                
+                <a href="{% url 'listaproductos' %}">Volver</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock %}
+
+</body>
+</html>
