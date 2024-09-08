@@ -4,6 +4,9 @@ from django.contrib.auth import login, authenticate
 from .forms import UserRegisterForm
 from django.contrib.auth import logout
 from django.shortcuts import redirect
+from .forms import ProfileForm
+from .models import Profile
+
 
 def login_request(request):
     
@@ -46,6 +49,23 @@ def register(request):
 def custom_logout(request):
     logout(request)
     return redirect('inicio')
+
+def edit_profile(request):
+    profile, created = Profile.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile, user=request.user)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            
+            request.user.email = form.cleaned_data['email']
+            request.user.save()
+            profile.save()
+            return redirect('inicio')
+    else:
+        form = ProfileForm(instance=profile, user=request.user)
+
+    return render(request, 'users/editar_usuario.html', {'form': form})
 
 # def editar_perfil(request):
 #     usuario = request.user
